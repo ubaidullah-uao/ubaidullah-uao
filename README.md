@@ -1,5 +1,5 @@
 - 👋 Hi, I’m @ubaidullah-uao
-- 🌱 I’m studying Bsc ItT (Software Negineering)
+- 🌱 I’m studying towards a Bsc IT (Software Engineering)
 - 💞️ I’m looking to collaborate on anything I can help on
 - 📫 How to reach me: abdulaubaido@gmail.com
 - ⚡ Fun fact: I'm into international affairs and politics too
