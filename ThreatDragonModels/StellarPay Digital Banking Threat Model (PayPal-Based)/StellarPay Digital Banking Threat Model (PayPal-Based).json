@@ -3,7 +3,7 @@
   "summary": {
     "title": "StellarPay Digital Banking Threat Model (PayPal-Based)",
     "owner": "Uaidullah Abdula",
-    "description": "",
+    "description": "StellarPay Digital Banking is a web-based digital payment platform, modeled after PayPal, enabling users to create accounts, link bank cards, send/receive money, pay for goods/services, and manage transactions in real time. It handles sensitive data including personal identification details, bank account information, transaction logs, and API communications with payment gateways, requiring robust security measures",
     "id": 0
   },
   "detail": {
