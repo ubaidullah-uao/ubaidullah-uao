@@ -11,7 +11,7 @@
     "diagrams": [
       {
         "id": 4,
-        "title": "StellarPay DFD (PayPal-Based)",
+        "title": "StellarPay (PayPal-Based)",
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
@@ -905,7 +905,8 @@
               }
             ]
           }
-        ]
+        ],
+        "description": "Assets like User Personal Details and Bank Account Information, as seen in PayPal, are prioritized due to GDPR/PCI-DSS compliance and high fraud risk. The scope includes entry points (User Interfaces, APIs) to address attack surfaces like phishing, data flows to secure transmissions (e.g., payments via HTTPS), and trust boundaries to enforce controls like firewalls and TLS, mirroring PayPal’s security approach for StellarPay."
       }
     ],
     "diagramTop": 7,
