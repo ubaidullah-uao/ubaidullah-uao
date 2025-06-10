@@ -19,12 +19,12 @@
         "cells": [
           {
             "position": {
-              "x": -10.0000000000001,
+              "x": -50,
               "y": -70
             },
             "size": {
-              "width": 220,
-              "height": 460
+              "width": 560,
+              "height": 640
             },
             "attrs": {
               "label": {
@@ -33,8 +33,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "ad8bdbed-f39d-4586-b224-0a10c620a0b1",
             "zIndex": -1,
+            "id": "ad8bdbed-f39d-4586-b224-0a10c620a0b1",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "HTTPS Boundary",
@@ -45,12 +45,12 @@
           },
           {
             "position": {
-              "x": -870,
-              "y": 224.9999999999991
+              "x": -1110.0000000000032,
+              "y": -145
             },
             "size": {
-              "width": 1140,
-              "height": 240
+              "width": 1750,
+              "height": 830
             },
             "attrs": {
               "label": {
@@ -59,24 +59,31 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "540134ef-88ab-4a7d-bdaa-bcfe419f7c8f",
             "zIndex": -1,
+            "id": "540134ef-88ab-4a7d-bdaa-bcfe419f7c8f",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Internal Network Boundary",
               "description": "Firewalls, secure protocols",
               "isTrustBoundary": true,
               "hasOpenThreats": false
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
             "position": {
-              "x": -800,
-              "y": 250
+              "x": -1060,
+              "y": 200.00000000000068
             },
             "size": {
-              "width": 140,
-              "height": 140
+              "width": 300,
+              "height": 450
             },
             "attrs": {
               "label": {
@@ -85,8 +92,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "e95ac39e-45dc-497d-92b7-f2d3ecaed310",
             "zIndex": -1,
+            "id": "e95ac39e-45dc-497d-92b7-f2d3ecaed310",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Database Access \nControl Boundary",
@@ -97,12 +104,12 @@
           },
           {
             "position": {
-              "x": -415,
-              "y": -70
+              "x": -505.00000000000045,
+              "y": -69.99999999999969
             },
             "size": {
-              "width": 230,
-              "height": 460
+              "width": 320,
+              "height": 500
             },
             "attrs": {
               "label": {
@@ -111,8 +118,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "14908200-fc6c-4f23-b11a-20430117c5a3",
             "zIndex": -1,
+            "id": "14908200-fc6c-4f23-b11a-20430117c5a3",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "API Security Boundary",
@@ -123,8 +130,34 @@
           },
           {
             "position": {
-              "x": 17.5,
-              "y": 10
+              "x": -1080.0000000000032,
+              "y": 140.00000000000068
+            },
+            "size": {
+              "width": 370,
+              "height": 510
+            },
+            "attrs": {
+              "label": {
+                "text": "Encryption Layer"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "id": "54814305-949c-47e0-89b6-252c5c98ca5f",
+            "zIndex": -1,
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Encryption Layer",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 173.75,
+              "y": 0
             },
             "size": {
               "width": 112.5,
@@ -142,6 +175,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -225,7 +259,6 @@
               ]
             },
             "id": "789bc736-0a96-454a-bae2-71339545c4d1",
-            "zIndex": 1,
             "data": {
               "type": "tm.Actor",
               "name": "User",
@@ -235,12 +268,15 @@
               "hasOpenThreats": false,
               "providesAuthentication": false,
               "threats": []
-            }
+            },
+            "children": [
+              "82fc2125-ec47-4a30-97a1-0ec7a5589f51"
+            ]
           },
           {
             "position": {
-              "x": 70,
-              "y": 300
+              "x": 200,
+              "y": 495
             },
             "size": {
               "width": 60,
@@ -251,13 +287,14 @@
                 "text": "Web Application"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -341,24 +378,113 @@
               ]
             },
             "id": "80c12219-e56f-4734-a0b8-55f8bee1deae",
-            "zIndex": 2,
             "data": {
               "type": "tm.Process",
               "name": "Web Application",
               "description": "Handles user inputs and displays transaction pages",
               "outOfScope": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": true,
               "privilegeLevel": "",
-              "threats": []
-            }
+              "threats": [
+                {
+                  "id": "a767ba8d-480c-4684-a2db-fbd56e0fdb70",
+                  "title": "The attacker may spoof the user’s identity to access the accounts.",
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "The attacker may spoof the user’s identity to access the accounts.",
+                  "mitigation": "I would suggest the implementation of Multi-Factor Authentication such as the utilization of app-based tokens like the Microsoft Authenticator App, the enforcement of string password policies, the configuring of account lockout from failed login attempts. Additionally, real-time management can be implemented for suspicious login patterns such as geolocation anomalies and the utilization of Security Information and Event Management (SIEM) system.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                },
+                {
+                  "id": "e87cb7da-1176-477c-b121-45454c80a4fd",
+                  "title": "The attacker may inject malicious code through user inputs (SQL injection)",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "This can occur when a fake backend server is set up which tricks the system into accepting fraudulent transaction requests",
+                  "mitigation": "Technical Controls: At the Web Application layer, I would suggest the implementation of input validation and sanitization along with the installation of a Web Application Firewall (WAF) to detect and block malicious inputs. Additionally, there should be regular updates to frameworks and libraries.\nAdministrative Controls: A patch management policy should be put into place with monthly reviews and there should be a mandate on code reviews for all input handling code.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                },
+                {
+                  "id": "34a55ac0-39ff-49db-bbc1-86cff54fc4a3",
+                  "title": "The user may deny having performed a transaction and the system has poor logging.",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Repudiation",
+                  "description": " The user can deny having authorized a transaction and the system may not be able to prove otherwise due to having inadequate logging, allowing the user to claim on the value of the transaction.",
+                  "mitigation": "Technical Controls: For vulnerabilities regarding this threat, I would recommend the implantation of detailed transaction logging with timestamps, IP addresses, and user ID’s, the use of digital signatures on all transaction records, and the storage of logs in tamper resistant databases.\nAdministrative Controls: There should be an implementation of a logging audit policy which has frequent reviews and staff responsible for this should be trained on log integrity maintenance.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                },
+                {
+                  "id": "d4d6cb95-07cc-4756-b278-b71ac85245e7",
+                  "title": "The user may face the disclosure of bank account information by an attacker.",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Information disclosure",
+                  "description": "Bank details of the user may be exposed to an intended target as a result of a breach or weak controls.",
+                  "mitigation": "Technical Controls: As a measure for this, it is important to use strong encryption, especially for the database fields. Encryption such as AES-256 is a good encryption mechanism to use, alongside restriction of database access to authorized personnel via RBAC (Role-Based Access Control). Furthermore, there should be a regular rotation of encryption keys using a secure key management system.\nAdministrative Controls: Penetration tests should be performed more frequently and there should be a strengthened policy regarding shared amin accounts.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                },
+                {
+                  "id": "145cc4fd-b362-45cc-84ee-550d604f23d5",
+                  "title": "StellarPay may experience a DDoS attack which overwhelms the web application which would subsequently disrupt the service. ",
+                  "status": "Mitigated",
+                  "severity": "TBD",
+                  "type": "Denial of service",
+                  "description": "This is when attackers overload the server with traffic which makes the service unavailable to legitimate users.",
+                  "mitigation": "Technical Controls: There should be implementation of rate limiting at the Web Application level and the deployment of DDoS protection services such as AWS Shield or Cloudflare. Additionally, it is vital to configure load balancing across multiple serves for enforced redundancy.\nAdministrative Controls: I would recommend the development of a stringent incident response plan for DDoS attacks alongside an increased frequency of stress testing that is aligned with business needs to ensure optimal levels of availability of the service.\n",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": ""
+                },
+                {
+                  "id": "15f41043-8339-45c9-8649-f347fb22277c",
+                  "title": "The attacker may gain administrative access to the platform.",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Elevation of privilege",
+                  "description": " An attacker may exploit the weaknesses of the system to gain unauthorized administrative access of the system ",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 3,
+                "tampering": 3,
+                "repudiation": 3,
+                "informationDisclosure": 2,
+                "denialOfService": 2,
+                "elevationOfPrivilege": 1
+              }
+            },
+            "children": [
+              "efab7b68-0ba0-4c29-a048-c1a366bc07d0"
+            ]
           },
           {
             "position": {
-              "x": -330,
+              "x": -265.0000000000032,
               "y": 300
             },
             "size": {
@@ -377,6 +503,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 3,
             "ports": {
               "groups": {
                 "top": {
@@ -460,7 +587,6 @@
               ]
             },
             "id": "a59585f8-75d9-46c6-b268-a1d2ed8a820c",
-            "zIndex": 3,
             "data": {
               "type": "tm.Process",
               "name": "Backend \nServer",
@@ -477,7 +603,7 @@
           },
           {
             "position": {
-              "x": -760,
+              "x": -980,
               "y": 300
             },
             "size": {
@@ -496,6 +622,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 4,
             "ports": {
               "groups": {
                 "top": {
@@ -579,7 +706,6 @@
               ]
             },
             "id": "04b82f13-ee6e-4a9b-bc2f-e894b1a45aa5",
-            "zIndex": 4,
             "data": {
               "type": "tm.Process",
               "name": "Database",
@@ -615,6 +741,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 7,
             "ports": {
               "groups": {
                 "top": {
@@ -698,7 +825,6 @@
               ]
             },
             "id": "e339c8a0-438d-479d-82db-b2d8d402202b",
-            "zIndex": 7,
             "data": {
               "type": "tm.Actor",
               "name": "Bank/\nPayement Gateway",
@@ -730,7 +856,7 @@
             "connector": "smooth",
             "data": {
               "type": "tm.Flow",
-              "name": "Login Credential\n(HTTPS)",
+              "name": "Store Data \n(Encrypted)\nSigned and Tamper-\nResistant Logs",
               "description": "",
               "outOfScope": false,
               "reasonOutOfScope": "",
@@ -742,57 +868,7 @@
               "threats": []
             },
             "labels": [
-              "Login Credential\n(HTTPS)"
-            ],
-            "id": "533b1a7c-b35b-46e3-8106-c3ffcd61e745",
-            "source": {
-              "cell": "789bc736-0a96-454a-bae2-71339545c4d1",
-              "port": "ae1e4bfe-08df-4bc1-b3e9-7432661c3a4c"
-            },
-            "target": {
-              "cell": "80c12219-e56f-4734-a0b8-55f8bee1deae",
-              "port": "b2a645a9-a15a-4e08-9c8f-840125cc55c1"
-            },
-            "vertices": [
-              {
-                "x": 130,
-                "y": 120
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Store Data \n(Encrypted)",
-              "description": "",
-              "outOfScope": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": []
-            },
-            "labels": [
-              "Store Data \n(Encrypted)"
+              "Store Data \n(Encrypted)\nSigned and Tamper-\nResistant Logs"
             ],
             "id": "37397170-7c97-4a82-8851-59e2e6ddce5a",
             "source": {
@@ -904,6 +980,1157 @@
                 "y": 170
               }
             ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Encrypted Data \nRBAC Enforced",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Encrypted Data \nRBAC Enforced"
+            ],
+            "id": "dedd9b0c-5743-4a05-9a19-d7aa6fc2d563",
+            "source": {
+              "cell": "83242c90-f7b9-4574-a9e8-1394a43b8a28",
+              "port": "afdea0be-c3f0-441a-a379-0414dd36a6f2"
+            },
+            "target": {
+              "cell": "04b82f13-ee6e-4a9b-bc2f-e894b1a45aa5",
+              "port": "add789e3-a1d7-460f-9db0-49385d43353a"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Validated Input\nWAF Filtered\n",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Validated Input\nWAF Filtered\n"
+            ],
+            "id": "0cf54b5d-4d38-4218-a255-e912fc8cd0ac",
+            "source": {
+              "cell": "789bc736-0a96-454a-bae2-71339545c4d1",
+              "port": "6df775ac-b7cd-44b9-8532-bce04e282a52"
+            },
+            "target": {
+              "cell": "80c12219-e56f-4734-a0b8-55f8bee1deae",
+              "port": "42d11663-7b56-4a0b-9aed-cb3c49bbac8f"
+            },
+            "vertices": [
+              {
+                "x": 229.75,
+                "y": 400
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Rate-Limited \nDDoS Protected Input",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Rate-Limited \nDDoS Protected Input"
+            ],
+            "id": "41594cea-6dec-47a7-975c-b77f3bbb829f",
+            "source": {
+              "cell": "789bc736-0a96-454a-bae2-71339545c4d1",
+              "port": "ae1e4bfe-08df-4bc1-b3e9-7432661c3a4c"
+            },
+            "target": {
+              "cell": "80c12219-e56f-4734-a0b8-55f8bee1deae",
+              "port": "b2a645a9-a15a-4e08-9c8f-840125cc55c1"
+            },
+            "vertices": [
+              {
+                "x": 440,
+                "y": 120
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "MFA Verification",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "MFA Verification"
+            ],
+            "id": "5299c362-2a5b-4475-bf57-3dc82404c34b",
+            "source": {
+              "cell": "789bc736-0a96-454a-bae2-71339545c4d1",
+              "port": "59852a16-00c9-4255-ba65-96504d625363"
+            },
+            "target": {
+              "cell": "80c12219-e56f-4734-a0b8-55f8bee1deae",
+              "port": "1df8219e-8c3b-4879-98b8-7deeee588ac6"
+            },
+            "vertices": [
+              {
+                "x": 0,
+                "y": 110
+              },
+              {
+                "x": 130,
+                "y": 410
+              }
+            ]
+          },
+          {
+            "position": {
+              "x": 3.75,
+              "y": 240
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Multi-Factor Authentication"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "afdea0be-c3f0-441a-a379-0414dd36a6f2"
+                },
+                {
+                  "group": "right",
+                  "id": "69e15329-573b-4107-aa92-f1ea679c9093"
+                },
+                {
+                  "group": "bottom",
+                  "id": "2de0f217-46f8-44a8-b77a-f1f1401ebd27"
+                },
+                {
+                  "group": "left",
+                  "id": "9cc47120-9230-4927-8b89-d1488f571693"
+                }
+              ]
+            },
+            "id": "f7519859-2372-4a70-abcf-80386724b656",
+            "zIndex": 11,
+            "data": {
+              "type": "tm.Process",
+              "name": "Multi-Factor Authentication",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 210,
+              "y": 140.00000000000068
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Web Application Firewall (WAF)"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "afdea0be-c3f0-441a-a379-0414dd36a6f2"
+                },
+                {
+                  "group": "right",
+                  "id": "69e15329-573b-4107-aa92-f1ea679c9093"
+                },
+                {
+                  "group": "bottom",
+                  "id": "2de0f217-46f8-44a8-b77a-f1f1401ebd27"
+                },
+                {
+                  "group": "left",
+                  "id": "9cc47120-9230-4927-8b89-d1488f571693"
+                }
+              ]
+            },
+            "id": "1405eda0-24dd-4abc-8e23-b2378bb4c804",
+            "zIndex": 12,
+            "data": {
+              "type": "tm.Process",
+              "name": "Web Application Firewall (WAF)",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 200,
+              "y": 330
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Input Validation"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "afdea0be-c3f0-441a-a379-0414dd36a6f2"
+                },
+                {
+                  "group": "right",
+                  "id": "69e15329-573b-4107-aa92-f1ea679c9093"
+                },
+                {
+                  "group": "bottom",
+                  "id": "2de0f217-46f8-44a8-b77a-f1f1401ebd27"
+                },
+                {
+                  "group": "left",
+                  "id": "9cc47120-9230-4927-8b89-d1488f571693"
+                }
+              ]
+            },
+            "id": "2faa640d-0bd9-4f09-ac6f-b488e78f5ba1",
+            "zIndex": 13,
+            "data": {
+              "type": "tm.Process",
+              "name": "Input Validation",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": -980,
+              "y": 540
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Role-Based \nAccess Control"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "afdea0be-c3f0-441a-a379-0414dd36a6f2"
+                },
+                {
+                  "group": "right",
+                  "id": "69e15329-573b-4107-aa92-f1ea679c9093"
+                },
+                {
+                  "group": "bottom",
+                  "id": "2de0f217-46f8-44a8-b77a-f1f1401ebd27"
+                },
+                {
+                  "group": "left",
+                  "id": "9cc47120-9230-4927-8b89-d1488f571693"
+                }
+              ]
+            },
+            "id": "83242c90-f7b9-4574-a9e8-1394a43b8a28",
+            "zIndex": 14,
+            "data": {
+              "type": "tm.Process",
+              "name": "Role-Based \nAccess Control",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 310,
+              "y": 330
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Rate Limiting"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "afdea0be-c3f0-441a-a379-0414dd36a6f2"
+                },
+                {
+                  "group": "right",
+                  "id": "69e15329-573b-4107-aa92-f1ea679c9093"
+                },
+                {
+                  "group": "bottom",
+                  "id": "2de0f217-46f8-44a8-b77a-f1f1401ebd27"
+                },
+                {
+                  "group": "left",
+                  "id": "9cc47120-9230-4927-8b89-d1488f571693"
+                }
+              ]
+            },
+            "id": "a349fde8-cb66-4a6a-9e90-ef82bdc8fdc1",
+            "zIndex": 15,
+            "data": {
+              "type": "tm.Process",
+              "name": "Rate Limiting",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 390,
+              "y": 140.00000000000068
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "DDoS Protection"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "afdea0be-c3f0-441a-a379-0414dd36a6f2"
+                },
+                {
+                  "group": "right",
+                  "id": "69e15329-573b-4107-aa92-f1ea679c9093"
+                },
+                {
+                  "group": "bottom",
+                  "id": "2de0f217-46f8-44a8-b77a-f1f1401ebd27"
+                },
+                {
+                  "group": "left",
+                  "id": "9cc47120-9230-4927-8b89-d1488f571693"
+                }
+              ]
+            },
+            "id": "b16a9d7a-0ed7-4d53-9e2c-129e4cc2cb9b",
+            "zIndex": 16,
+            "data": {
+              "type": "tm.Process",
+              "name": "DDoS Protection",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": -385,
+              "y": 300
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Digital\nSignatures\n"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "afdea0be-c3f0-441a-a379-0414dd36a6f2"
+                },
+                {
+                  "group": "right",
+                  "id": "69e15329-573b-4107-aa92-f1ea679c9093"
+                },
+                {
+                  "group": "bottom",
+                  "id": "2de0f217-46f8-44a8-b77a-f1f1401ebd27"
+                },
+                {
+                  "group": "left",
+                  "id": "9cc47120-9230-4927-8b89-d1488f571693"
+                }
+              ]
+            },
+            "id": "e3ca62d6-7e72-4fad-a1dd-7d297df46e88",
+            "zIndex": 17,
+            "data": {
+              "type": "tm.Process",
+              "name": "Digital\nSignatures\n",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": -486,
+              "y": 300
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Taper-Resistant\nLogging"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "afdea0be-c3f0-441a-a379-0414dd36a6f2"
+                },
+                {
+                  "group": "right",
+                  "id": "69e15329-573b-4107-aa92-f1ea679c9093"
+                },
+                {
+                  "group": "bottom",
+                  "id": "2de0f217-46f8-44a8-b77a-f1f1401ebd27"
+                },
+                {
+                  "group": "left",
+                  "id": "9cc47120-9230-4927-8b89-d1488f571693"
+                }
+              ]
+            },
+            "id": "19184201-b1cf-43b2-b509-c72b2c489744",
+            "zIndex": 18,
+            "data": {
+              "type": "tm.Process",
+              "name": "Taper-Resistant\nLogging",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
           }
         ],
         "description": "Assets like User Personal Details and Bank Account Information, as seen in PayPal, are prioritized due to GDPR/PCI-DSS compliance and high fraud risk. The scope includes entry points (User Interfaces, APIs) to address attack surfaces like phishing, data flows to secure transmissions (e.g., payments via HTTPS), and trust boundaries to enforce controls like firewalls and TLS, mirroring PayPal’s security approach for StellarPay."
@@ -911,6 +2138,6 @@
     ],
     "diagramTop": 7,
     "reviewer": "Educator",
-    "threatTop": 0
+    "threatTop": 7
   }
 }
